@@ -9,7 +9,10 @@ async function exploreDestination() {
 
   try {
     // Fetch image from Unsplash
-    const imgRes = await fetch(`https://api.unsplash.com/search/photos?query=${query}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=1`);
+    const headers = {
+      "Authorization": `Client-ID ${UNSPLASH_ACCESS_KEY}`
+    };
+    const imgRes = await fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=1`, { headers });
     const imgData = await imgRes.json();
     const imgUrl = imgData.results[0]?.urls?.regular || "https://via.placeholder.com/300x200";
 
@@ -32,7 +35,6 @@ async function exploreDestination() {
         </div>
       </div>
     `;
-
   } catch (error) {
     console.error(error);
     document.getElementById("results").innerHTML = "<p>Error fetching data. Try again!</p>";
