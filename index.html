@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Travel Explorer 🗺️</h1>
+            <p>Your journey to discovery starts here.</p>
+            <div class="search-section">
+                <input type="text" id="city-input" placeholder="Enter a city or destination...">
+                <button id="search-btn"><i class="fas fa-search"></i> Explore</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="loading-spinner" class="spinner-overlay">
+            <div class="spinner"></div>
+        </div>
+
+        <section class="destination-info" id="destination-info">
+            <h2 id="destination-name" class="section-title"></h2>
+            
+            <div class="info-grid">
+                <div class="map-card card">
+                    <h3>Explore on Map 📍</h3>
+                    <div id="map-container"></div>
+                </div>
+
+                <div class="weather-card card">
+                    <h3>Weather Forecast ☁️</h3>
+                    <div id="weather-data">
+                        <p>Search for a city to see the weather.</p>
+                    </div>
+                </div>
+
+                <div class="image-gallery card">
+                    <h3>Photos of <span id="gallery-name"></span> 📸</h3>
+                    <div class="photo-grid" id="photo-grid">
+                        <p>Photos will appear here.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-share-container">
+                <p>Share this amazing place!</p>
+                <div class="social-buttons">
+                    <a href="#" class="social-btn facebook-btn" target="_blank" title="Share on Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-btn twitter-btn" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn whatsapp-btn" target="_blank" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

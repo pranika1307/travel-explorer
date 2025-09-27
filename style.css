@@ -1,0 +1,283 @@
+:root {
+    --primary-color: #3b3131;
+    --secondary-color: #b76e79;
+    --accent-color: #f0c987;
+    --background-color: #f7f1e3;
+    --card-bg-color: #ffffff;
+    --text-color: #4b4b4b;
+    --light-text-color: #fcfcfc;
+}
+
+/* Import new fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.hero-section {
+    position: relative;
+    height: 70vh;
+    background-color: var(--primary-color);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-text-color);
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-image 1s ease-in-out;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    background: rgba(59, 49, 49, 0.6); /* Use primary color with transparency */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#city-input {
+    width: 70%;
+    max-width: 400px;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#city-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(240, 201, 135, 0.5);
+}
+
+#search-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#search-btn:hover {
+    background-color: #a45e69;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.destination-info {
+    display: none;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .info-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    font-family: 'Merriweather', serif;
+    font-size: 1.8rem;
+}
+
+#map-container {
+    height: 400px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+#weather-data {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.weather-day {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.weather-day img {
+    width: 50px;
+    height: 50px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--accent-color);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.social-share-container {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.social-share-container p {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.facebook-btn { background-color: #3b5998; }
+.twitter-btn { background-color: #55acee; }
+.whatsapp-btn { background-color: #25d366; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
