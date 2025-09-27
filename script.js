@@ -2,12 +2,16 @@
 const UNSPLASH_ACCESS_KEY = "M4xC0vA7pKIMtuJEi3RAT1EMmb74IhRys6wNvOn9ZN4";
 const OPENWEATHERMAP_API_KEY = "7bcf27225c081536417b25102be9a77d";
 
-// Run key check when page loads
-window.onload = function () {
-  checkAPIKeys();
-};
+/* ----------------- INIT ----------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  // Attach search button
+  document.getElementById("searchBtn").addEventListener("click", searchDestination);
 
-// 🔍 Main search function
+  // Run API key check on page load
+  checkAPIKeys();
+});
+
+/* ----------------- MAIN SEARCH ----------------- */
 async function searchDestination() {
   const destination = document.getElementById("destinationInput").value.trim();
   if (!destination) {
@@ -28,7 +32,7 @@ async function searchDestination() {
   }
 }
 
-/* ------------------- DEMO DATA (fallback) ------------------- */
+/* ----------------- DEMO FALLBACK ----------------- */
 function loadDemoPhotos() {
   const photoContainer = document.getElementById("photoContainer");
   photoContainer.innerHTML = "";
@@ -62,7 +66,7 @@ function loadDemoWeather(city) {
   `;
 }
 
-/* ------------------- UNSPLASH API ------------------- */
+/* ----------------- UNSPLASH API ----------------- */
 async function fetchPhotos(query) {
   const photoContainer = document.getElementById("photoContainer");
   photoContainer.innerHTML = "<p>Loading photos...</p>";
@@ -94,7 +98,7 @@ async function fetchPhotos(query) {
   }
 }
 
-/* ------------------- OPENWEATHER API ------------------- */
+/* ----------------- OPENWEATHER API ----------------- */
 async function fetchWeather(city) {
   const weatherContainer = document.getElementById("weatherContainer");
   weatherContainer.innerHTML = "<p>Loading weather...</p>";
@@ -126,7 +130,7 @@ async function fetchWeather(city) {
   }
 }
 
-/* ------------------- API KEY STATUS CHECK ------------------- */
+/* ----------------- API KEY CHECK ----------------- */
 async function checkAPIKeys() {
   const statusBox = document.getElementById("apiStatus");
 
@@ -165,10 +169,6 @@ async function checkAPIKeys() {
     statusBox.className = "api-status error";
   } else {
     statusBox.innerHTML = "❌ No valid API keys found (Demo mode enabled)";
-    statusBox.className = "api-status error";
-  }
-}
-d (demo mode)";
     statusBox.className = "api-status error";
   }
 }
