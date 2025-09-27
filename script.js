@@ -1,0 +1,40 @@
+const UNSPLASH_ACCESS_KEY = "YOUR_UNSPLASH_ACCESS_KEY"; // Replace with your Unsplash API key
+const WEATHER_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"; // Replace with your OpenWeatherMap API key
+
+async function exploreDestination() {
+  const query = document.getElementById("destination").value;
+  if (!query) return alert("Please enter a destination");
+
+  document.getElementById("results").innerHTML = "<p>Loading...</p>";
+
+  try {
+    // Fetch image from Unsplash
+    const imgRes = await fetch(`https://api.unsplash.com/search/photos?query=${query}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=1`);
+    const imgData = await imgRes.json();
+    const imgUrl = imgData.results[0]?.urls?.regular || "https://via.placeholder.com/300x200";
+
+    // Fetch weather from OpenWeatherMap
+    const weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${WEATHER_API_KEY}&units=metric`);
+    const weatherData = await weatherRes.json();
+
+    let weatherInfo = "Weather not found";
+    if (weatherData.cod === 200) {
+      weatherInfo = `${weatherData.weather[0].description}, ${weatherData.main.temp}°C`;
+    }
+
+    // Render result
+    document.getElementById("results").innerHTML = `
+      <div class="card">
+        <img src="${imgUrl}" alt="${query}">
+        <div class="card-content">
+          <h2>${query}</h2>
+          <p class="weather">🌤️ ${weatherInfo}</p>
+        </div>
+      </div>
+    `;
+
+  } catch (error) {
+    console.error(error);
+    document.getElementById("results").innerHTML = "<p>Error fetching data. Try again!</p>";
+  }
+}
