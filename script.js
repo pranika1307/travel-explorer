@@ -1,6 +1,6 @@
-// Leave these empty to use demo data
-const UNSPLASH_ACCESS_KEY = "";
-const OPENWEATHERMAP_API_KEY = "";
+
+const UNSPLASH_ACCESS_KEY = "M4xC0vA7pKIMtuJEi3RAT1EMmb74IhRys6wNvOn9ZN4";
+const OPENWEATHERMAP_API_KEY = "7bcf27225c081536417b25102be9a77d";
 
 async function searchDestination() {
   const destination = document.getElementById("destinationInput").value.trim();
