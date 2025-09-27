@@ -1,5 +1,4 @@
-
-const UNSPLASH_ACCESS_KEY = 'M4xC0vA7pKIMtuJEi3RAT1EMmb74IhRys6wNvOn9ZN4'; 
+const UNSPLASH_ACCESS_KEY = 'M4xC0vA7pKIMtuJEi3RAT1EMmb74IhRys6wNvOn9ZN4';
 const OPENWEATHERMAP_API_KEY = '7bcf27225c081536417b25102be9a77d';
 
 const cityInput = document.getElementById('city-input');
@@ -69,7 +68,7 @@ async function getUnsplashPhotos(city) {
 }
 
 function displayWeatherData(data) {
-    const { name, main, weather, wind } = data;
+    const { main, weather, wind } = data;
     const temp = main.temp;
     const feelsLike = main.feels_like;
     const description = weather[0].description;
