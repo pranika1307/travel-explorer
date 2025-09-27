@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Explorer</title>
+  <title>🌍 Travel Explorer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,25 +12,32 @@
     <p>Plan your trip with ease — explore destinations, view photos & check the weather</p>
   </header>
 
-  <!-- API status bar -->
+  <!-- API status -->
   <section id="apiStatus" class="api-status">
     <p>Checking API keys...</p>
   </section>
 
+  <!-- Search bar -->
+  <section id="searchSection">
+    <input type="text" id="destinationInput" placeholder="Enter a destination...">
+    <button id="searchBtn">Search</button>
+  </section>
+
+  <!-- Results -->
   <main>
-    <section class="search-section">
-      <input type="text" id="destinationInput" placeholder="Enter a destination...">
-      <button onclick="searchDestination()">Search</button>
+    <section id="photos">
+      <h2>📸 Destination Photos</h2>
+      <div id="photoContainer" class="photo-grid"></div>
     </section>
 
-    <section class="result-section">
-      <div id="photoContainer" class="photo-container"></div>
-      <div id="weatherContainer" class="weather-container"></div>
+    <section id="weather">
+      <h2>☀️ Weather Information</h2>
+      <div id="weatherContainer"></div>
     </section>
   </main>
 
   <footer>
-    <p>Made with ❤️ | Travel Explorer Project</p>
+    <p>Made with ❤️ for travel lovers</p>
   </footer>
 
   <script src="script.js"></script>
