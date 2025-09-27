@@ -7,14 +7,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>🌍 Travel Explorer</header>
+  <header>
+    <h1>🌍 Travel Explorer</h1>
+    <p>Plan your trip with ease — explore destinations, view photos & check the weather</p>
+  </header>
 
-  <div class="search-box">
-    <input type="text" id="destination" placeholder="Enter a destination...">
-    <button onclick="exploreDestination()">Explore</button>
-  </div>
+  <main>
+    <section class="search-section">
+      <input type="text" id="destinationInput" placeholder="Enter a destination...">
+      <button onclick="searchDestination()">Search</button>
+    </section>
 
-  <div class="results" id="results"></div>
+    <section class="result-section">
+      <div id="photoContainer" class="photo-container"></div>
+      <div id="weatherContainer" class="weather-container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ | Travel Explorer Project</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
