@@ -1,5 +1,5 @@
-const UNSPLASH_ACCESS_KEY = "M4xC0vA7pKIMtuJEi3RAT1EMmb74IhRys6wNvOn9ZN4"; // Replace with your Unsplash API key
-const WEATHER_API_KEY = "9c8cf55024bb1e933869b6664bc0bdb4"; // Replace with your OpenWeatherMap API key
+const UNSPLASH_ACCESS_KEY = "M4xC0vA7pKIMtuJEi3RAT1EMmb74IhRys6wNvOn9ZN4";
+const WEATHER_API_KEY = "9c8cf55024bb1e933869b6664bc0bdb4";
 
 async function exploreDestination() {
   const query = document.getElementById("destination").value;
